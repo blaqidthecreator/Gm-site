@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GM | The World Says Good Morning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gm: {
+                            purple: "#A855F7",
+                            indigo: "#4F46E5",
+                            cyan: "#06B6D4",
+                            dark: "#050505",
+                        },
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(5deg)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px #06B6D4' },
+                            '100%': { boxShadow: '0 0 20px #A855F7' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.15;
+            color: #06B6D4;
+        }
+    </style>
+</head>
+<body class="bg-gm-dark text-white overflow-x-hidden transition-colors duration-500" id="body">
+
+    <div id="particle-container"></div>
+
+    <nav class="fixed top-0 w-full z-50 glass-card">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-black italic bg-gradient-to-r from-gm-cyan to-gm-purple bg-clip-text text-transparent">
+                $GM
+            </div>
+            <div class="hidden md:flex gap-8 font-medium">
+                <a href="#about" class="hover:text-gm-cyan transition-colors">About</a>
+                <a href="#howtobuy" class="hover:text-gm-cyan transition-colors">How to Buy</a>
+                <a href="#tokenomics" class="hover:text-gm-cyan transition-colors">Tokenomics</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button id="vibeToggle" class="p-2 rounded-full bg-white/5 hover:bg-white/10">
+                    <i data-lucide="sun" id="vibeIcon" class="text-yellow-400"></i>
+                </button>
+                <button id="walletConnectBtn" class="px-6 py-2 rounded-full font-bold bg-gradient-to-r from-gm-cyan to-gm-purple shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-105 transition-transform">
+                    Connect
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20 px-6 flex flex-col items-center text-center">
+        <div data-aos="zoom-in" class="relative mb-8 animate-float">
+            <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-tr from-gm-purple via-gm-indigo to-gm-cyan p-1 shadow-[0_0_50px_rgba(168,85,247,0.4)]">
+                <div class="w-full h-full rounded-full bg-gm-dark flex items-center justify-center text-8xl">
+                    ☀️
+                </div>
+            </div>
+        </div>
+
+        <h1 data-aos="fade-up" class="text-6xl md:text-8xl font-black mb-4 tracking-tight">
+            THE WORLD SAYS <span class="text-gm-cyan">GM.</span>
+        </h1>
+        <p data-aos="fade-up" data-aos-delay="100" class="text-xl md:text-2xl text-gray-400 max-w-2xl mb-10">
+            The most important 2 letters in Web3. Now on Solana.
+        </p>
+
+        <div data-aos="fade-up" data-aos-delay="200" class="flex flex-wrap justify-center gap-4">
+            <a href="https://pump.fun/coin/DFTrNk4q1YTRhKzgDGBVyzFdKiaSiDaw7j8XgjZRpump" target="_blank" class="px-10 py-4 bg-white text-black font-black rounded-xl hover:bg-gm-cyan transition-colors">
+                BUY $GM
+            </a>
+            
+            <a href="https://pump.fun/coin/DFTrNk4q1YTRhKzgDGBVyzFdKiaSiDaw7j8XgjZRpump" target="_blank" class="px-10 py-4 border-2 border-white/20 font-black rounded-xl hover:bg-white/5 transition-colors flex items-center gap-2">
+                VIEW CHART <i data-lucide="external-link" size="20"></i>
+            </a>
+        </div>
+    </section>
+
+    <section class="py-10 px-6">
+        <div class="max-w-3xl mx-auto glass-card p-4 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+            <code class="text-gm-cyan font-mono text-sm md:text-base break-all" id="caText">DFTrNk4q1YTRhKzgDGBVyzFdKiaSiDaw7j8XgjZRpump</code>
+            <button onclick="copyCA()" class="flex items-center gap-2 bg-gm-purple px-6 py-2 rounded-lg font-bold hover:brightness-110 transition-all active:scale-95" id="copyBtn">
+                <i data-lucide="copy" size="18"></i> COPY
+            </button>
+        </div>
+    </section>
+
+    <section id="tokenomics" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-black mb-12 text-center">TOKENOMICS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div data-aos="flip-left" class="p-8 rounded-3xl glass-card text-center flex flex-col items-center">
+                    <i data-lucide="coffee" class="text-gm-cyan mb-4" size="48"></i>
+                    <h3 class="text-2xl font-black mb-2">0% TAXES</h3>
+                    <p class="text-gray-400">Pure GM Energy</p>
+                </div>
+                <div data-aos="flip-left" data-aos-delay="100" class="p-8 rounded-3xl glass-card text-center flex flex-col items-center">
+                    <i data-lucide="flame" class="text-gm-purple mb-4" size="48"></i>
+                    <h3 class="text-2xl font-black mb-2">LP BURNT</h3>
+                    <p class="text-gray-400">Gone to the Sun</p>
+                </div>
+                <div data-aos="flip-left" data-aos-delay="200" class="p-8 rounded-3xl glass-card text-center flex flex-col items-center">
+                    <i data-lucide="lock" class="text-gm-indigo mb-4" size="48"></i>
+                    <h3 class="text-2xl font-black mb-2">MINT REVOKED</h3>
+                    <p class="text-gray-400">Safe & Comfy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-in">
+            <h2 class="text-4xl font-black mb-6 italic">CULTURE > CODE</h2>
+            <p class="text-xl text-gray-300 leading-relaxed">
+                $GM isn't just a ticker; it's the heartbeat of the internet. From the trenches of the bear market to the peaks of the bull, we start every day the same way. Good Morning is our prayer.
+            </p>
+        </div>
+    </section>
+
+    <footer class="py-10 border-t border-white/10 text-center">
+        <div class="flex justify-center gap-6 mb-4">
+            <a href="https://x.com/gmifyougm?s=21" class="hover:text-gm-cyan transition-colors"><i data-lucide="twitter"></i></a>
+        </div>
+        <p class="text-gray-500 text-sm">© 2026 $GM on Solana. Say it back.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Icons & Animations
+        lucide.createIcons();
+        AOS.init({ duration: 1000, once: true });
+
+        // Vibe Toggle Logic
+        const vibeBtn = document.getElementById('vibeToggle');
+        const body = document.getElementById('body');
+        const vibeIcon = document.getElementById('vibeIcon');
+        let isDark = true;
+
+        vibeBtn.addEventListener('click', () => {
+            isDark = !isDark;
+            body.classList.toggle('bg-gm-dark', isDark);
+            body.classList.toggle('bg-slate-50', !isDark);
+            body.classList.toggle('text-white', isDark);
+            body.classList.toggle('text-gm-dark', !isDark);
+            
+            vibeIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+            vibeIcon.style.color = isDark ? '#FACC15' : '#4F46E5';
+            lucide.createIcons();
+        });
+
+        // FIXED: Wallet Connection Logic
+        const connectBtn = document.getElementById('walletConnectBtn');
+        connectBtn.addEventListener('click', async () => {
+            if (window.solana) {
+                try {
+                    const resp = await window.solana.connect();
+                    const addr = resp.publicKey.toString();
+                    connectBtn.innerText = addr.slice(0,4) + '...' + addr.slice(-4);
+                    // Changing to solid color to indicate active connection
+                    connectBtn.style.background = "#10B981"; 
+                    connectBtn.style.boxShadow = "none";
+                } catch (err) {
+                    console.log("User cancelled connection");
+                }
+            } else {
+                window.open("https://phantom.app/", "_blank");
+            }
+        });
+
+        // Copy CA Logic
+        function copyCA() {
+            const ca = document.getElementById('caText').innerText;
+            navigator.clipboard.writeText(ca);
+            const btn = document.getElementById('copyBtn');
+            btn.innerHTML = 'COPIED!';
+            setTimeout(() => {
+                btn.innerHTML = '<i data-lucide="copy" size="18"></i> COPY';
+                lucide.createIcons();
+            }, 2000);
+        }
+
+        // Create Background Particles
+        const container = document.getElementById('particle-container');
+        for (let i = 0; i < 20; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle font-bold';
+            p.innerText = i % 2 === 0 ? '$GM' : '☀️';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.top = Math.random() * 100 + 'vh';
+            p.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            animateParticle(p);
+            container.appendChild(p);
+        }
+
+        function animateParticle(el) {
+            const duration = Math.random() * 30000 + 20000;
+            el.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: 0 },
+                { opacity: 0.2, offset: 0.2 },
+                { transform: `translateY(-100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], {
+                duration: duration,
+                iterations: Infinity,
+                easing: 'linear'
+            });
+        }
+    </script>
+<script src="index.js"></script>
+</body>
+</html>
