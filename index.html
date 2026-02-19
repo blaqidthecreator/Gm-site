@@ -62,18 +62,22 @@
             <div class="text-2xl font-black italic bg-gradient-to-r from-gm-cyan to-gm-purple bg-clip-text text-transparent">
                 $GM
             </div>
-            <div class="hidden md:flex gap-8 font-medium">
+            <div class="hidden md:flex gap-8 font-medium text-sm uppercase tracking-widest">
                 <a href="#about" class="hover:text-gm-cyan transition-colors">About</a>
                 <a href="#howtobuy" class="hover:text-gm-cyan transition-colors">How to Buy</a>
                 <a href="#tokenomics" class="hover:text-gm-cyan transition-colors">Tokenomics</a>
             </div>
             <div class="flex items-center gap-4">
-                <button id="vibeToggle" class="p-2 rounded-full bg-white/5 hover:bg-white/10">
+                <button id="vibeToggle" class="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-all">
                     <i data-lucide="sun" id="vibeIcon" class="text-yellow-400"></i>
                 </button>
-                <button id="walletConnectBtn" class="px-6 py-2 rounded-full font-bold bg-gradient-to-r from-gm-cyan to-gm-purple shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:scale-105 transition-transform">
-                    Connect
-                </button>
+                
+                <a href="https://x.com/gmifyougm?s=21" target="_blank" class="px-6 py-2 rounded-full font-bold bg-white text-black hover:bg-gm-cyan transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:scale-105">
+                    FOLLOW 
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </nav>
@@ -98,7 +102,6 @@
             <a href="https://pump.fun/coin/DFTrNk4q1YTRhKzgDGBVyzFdKiaSiDaw7j8XgjZRpump" target="_blank" class="px-10 py-4 bg-white text-black font-black rounded-xl hover:bg-gm-cyan transition-colors">
                 BUY $GM
             </a>
-            
             <a href="https://pump.fun/coin/DFTrNk4q1YTRhKzgDGBVyzFdKiaSiDaw7j8XgjZRpump" target="_blank" class="px-10 py-4 border-2 border-white/20 font-black rounded-xl hover:bg-white/5 transition-colors flex items-center gap-2">
                 VIEW CHART <i data-lucide="external-link" size="20"></i>
             </a>
@@ -114,23 +117,51 @@
         </div>
     </section>
 
+    <section id="howtobuy" class="py-20 px-6 bg-white/5">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-black mb-12 text-center italic">HOW TO $GM</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="p-6 glass-card rounded-2xl border-l-4 border-gm-cyan">
+                    <span class="text-gm-cyan font-black text-2xl">01</span>
+                    <h3 class="font-bold text-lg mt-2 uppercase">Create Wallet</h3>
+                    <p class="text-gray-400 text-sm">Download Phantom or Solflare and set up your wallet.</p>
+                </div>
+                <div class="p-6 glass-card rounded-2xl border-l-4 border-gm-indigo">
+                    <span class="text-gm-indigo font-black text-2xl">02</span>
+                    <h3 class="font-bold text-lg mt-2 uppercase">Get Some SOL</h3>
+                    <p class="text-gray-400 text-sm">Transfer SOL from an exchange to your wallet.</p>
+                </div>
+                <div class="p-6 glass-card rounded-2xl border-l-4 border-gm-purple">
+                    <span class="text-gm-purple font-black text-2xl">03</span>
+                    <h3 class="font-bold text-lg mt-2 uppercase">Go to Pump.fun</h3>
+                    <p class="text-gray-400 text-sm">Paste the $GM contract address into the search bar.</p>
+                </div>
+                <div class="p-6 glass-card rounded-2xl border-l-4 border-gm-cyan">
+                    <span class="text-gm-cyan font-black text-2xl">04</span>
+                    <h3 class="font-bold text-lg mt-2 uppercase">Say GM</h3>
+                    <p class="text-gray-400 text-sm">Swap SOL for $GM and join the culture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="tokenomics" class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-black mb-12 text-center">TOKENOMICS</h2>
+            <h2 class="text-4xl font-black mb-12 text-center uppercase">Tokenomics</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div data-aos="flip-left" class="p-8 rounded-3xl glass-card text-center flex flex-col items-center">
                     <i data-lucide="coffee" class="text-gm-cyan mb-4" size="48"></i>
-                    <h3 class="text-2xl font-black mb-2">0% TAXES</h3>
+                    <h3 class="text-2xl font-black mb-2 uppercase">0% Taxes</h3>
                     <p class="text-gray-400">Pure GM Energy</p>
                 </div>
                 <div data-aos="flip-left" data-aos-delay="100" class="p-8 rounded-3xl glass-card text-center flex flex-col items-center">
                     <i data-lucide="flame" class="text-gm-purple mb-4" size="48"></i>
-                    <h3 class="text-2xl font-black mb-2">LP BURNT</h3>
+                    <h3 class="text-2xl font-black mb-2 uppercase">LP Burnt</h3>
                     <p class="text-gray-400">Gone to the Sun</p>
                 </div>
                 <div data-aos="flip-left" data-aos-delay="200" class="p-8 rounded-3xl glass-card text-center flex flex-col items-center">
                     <i data-lucide="lock" class="text-gm-indigo mb-4" size="48"></i>
-                    <h3 class="text-2xl font-black mb-2">MINT REVOKED</h3>
+                    <h3 class="text-2xl font-black mb-2 uppercase">Mint Revoked</h3>
                     <p class="text-gray-400">Safe & Comfy</p>
                 </div>
             </div>
@@ -139,27 +170,29 @@
 
     <section id="about" class="py-20 px-6">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-in">
-            <h2 class="text-4xl font-black mb-6 italic">CULTURE > CODE</h2>
+            <h2 class="text-4xl font-black mb-6 italic uppercase">Culture > Code</h2>
             <p class="text-xl text-gray-300 leading-relaxed">
-                $GM isn't just a ticker; it's the heartbeat of the internet. From the trenches of the bear market to the peaks of the bull, we start every day the same way. Good Morning is our prayer.
+                $GM isn't just a ticker; it's the heartbeat of the internet. We start every day the same way. Good Morning is our prayer.
             </p>
         </div>
     </section>
 
     <footer class="py-10 border-t border-white/10 text-center">
-        <div class="flex justify-center gap-6 mb-4">
-            <a href="https://x.com/gmifyougm?s=21" class="hover:text-gm-cyan transition-colors"><i data-lucide="twitter"></i></a>
+        <div class="flex justify-center mb-4">
+            <a href="https://x.com/gmifyougm?s=21" target="_blank" class="hover:text-gm-cyan transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
         </div>
-        <p class="text-gray-500 text-sm">© 2026 $GM on Solana. Say it back.</p>
+        <p class="text-gray-500 text-sm uppercase tracking-widest">© 2026 $GM on Solana. Say it back.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize Icons & Animations
         lucide.createIcons();
         AOS.init({ duration: 1000, once: true });
 
-        // Vibe Toggle Logic
         const vibeBtn = document.getElementById('vibeToggle');
         const body = document.getElementById('body');
         const vibeIcon = document.getElementById('vibeIcon');
@@ -171,32 +204,11 @@
             body.classList.toggle('bg-slate-50', !isDark);
             body.classList.toggle('text-white', isDark);
             body.classList.toggle('text-gm-dark', !isDark);
-            
             vibeIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
             vibeIcon.style.color = isDark ? '#FACC15' : '#4F46E5';
             lucide.createIcons();
         });
 
-        // FIXED: Wallet Connection Logic
-        const connectBtn = document.getElementById('walletConnectBtn');
-        connectBtn.addEventListener('click', async () => {
-            if (window.solana) {
-                try {
-                    const resp = await window.solana.connect();
-                    const addr = resp.publicKey.toString();
-                    connectBtn.innerText = addr.slice(0,4) + '...' + addr.slice(-4);
-                    // Changing to solid color to indicate active connection
-                    connectBtn.style.background = "#10B981"; 
-                    connectBtn.style.boxShadow = "none";
-                } catch (err) {
-                    console.log("User cancelled connection");
-                }
-            } else {
-                window.open("https://phantom.app/", "_blank");
-            }
-        });
-
-        // Copy CA Logic
         function copyCA() {
             const ca = document.getElementById('caText').innerText;
             navigator.clipboard.writeText(ca);
@@ -208,7 +220,6 @@
             }, 2000);
         }
 
-        // Create Background Particles
         const container = document.getElementById('particle-container');
         for (let i = 0; i < 20; i++) {
             const p = document.createElement('div');
@@ -234,6 +245,5 @@
             });
         }
     </script>
-<script src="index.js"></script>
 </body>
 </html>
